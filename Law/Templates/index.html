@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Code_X</title>
+</head>
+
+<body>
+<section class="bg-cover bg-center" style="background-image: url('{{ url_for('static', filename='hero.jpg') }}');">
+<header class="text-gray-600 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <span class="ml-3 text-2xl">Code_X</span>
+      </a>
+      <nav class="md:ml-auto flex flex-wrap items-center text-xl justify-center">
+            <a class="mr-8 text-black hover:text-white hover:underline p-2 rounded-xl hover:bg-[#e6ae93]" title="Home" href="/"><b>Home</b></a>
+            <a class="mr-8 text-black hover:text-white hover:underline p-2 rounded-xl hover:bg-[#e6ae93]" title="About" href="#about">About</a>
+            <a class="mr-8 text-black hover:text-white hover:underline p-2 rounded-xl hover:bg-[#e6ae93]" title="Upload" href="/#upload">Upload</a>
+            <a class="mr-2 text-black hover:text-white hover:underline p-2 rounded-xl hover:bg-[#e6ae93]" title="Log In" href="#">Log In</a>
+      </nav>
+    </div>
+  </header>
+
+
+<hr><hr>
+
+<section class="text-gray-600 body-font bg-[#e6ae9e]">
+  <div class="container mx-auto flex px-5 py-16 md:flex-row flex-col items-center">
+    <!-- <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+      <img class="object-cover object-center rounded -ml-10" alt="hero" src="{{url_for('static', filename='img/hero.svg')}}">
+    </div> -->
+    <div class="lg:flex-grow flex flex-col md:items-start md:text-left items-center text-justify">
+      <h1 class="title-font text-6xl mb-4 font-medium text-gray-900 justify-center text-center">Your Reading Just Got a whole <br><h1 class="title-font text-6xl mb-0 font-medium text-gray-900">lot shorter and easier</h1>
+        <br class="hidden lg:inline-block">
+      </h1>
+      <!-- <p class="mb-8 leading-relaxed">Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.</p> -->
+      <div class="flex justify-center">
+        <button class="ml-52 inline-flex text-gray-900 bg-gray-100 py-2 px-9 focus:outline-none hover:bg-[#e6ae9e] border-2 border-black rounded-3xl text-xl justify-center"><a href="#upload">Let`s Try Now</a></button>
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+
+
+<section class="text-gray-600 body-font" id="about">
+  <div class="container mx-auto flex px-5 py-14 md:flex-row flex-col items-center ">
+    <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-10 md:mb-0 items-center text-center ml-20">
+      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Drag and Drop - its`s that easy
+        <!-- <br class="hidden lg:inline-block">readymade gluten -->
+      </h1>
+      <p class="mb-8 leading-relaxed text-xl">Booklit takes any PDF file and creates short, easy-to-read summaries so you don't have to..</p>
+      <div class="flex justify-center">
+        <button class="ml-4 inline-flex text-gray-900 bg-[#e6ae93] hover:bg-slate-50 py-2 px-6 focus:outline-none border-2 border-black rounded-3xl text-xl">Button</button>
+      </div>
+    </div>
+    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+      <img class="object-cover object-center rounded" alt="hero" src="{{url_for('static', filename='img/hero1.svg')}}">
+    </div>
+  </div>
+</section>
+
+<hr><hr>
+
+<!-- <form method="POST" enctype="multipart/form-data" action="/upload">
+  <div class="mx-96 ">
+    <input class="" type="file" name="pdf_file" accept=".pdf">
+    <input type="submit" value="Upload">
+  </div>
+</form> -->
+
+<section class="bg-[#e6ae93]" id="upload">
+<div class="flex w-full pt-10 pb-10 items-center justify-center ">
+
+  <form method="POST" enctype="multipart/form-data" action="/upload">
+
+    <label class="w-80 flex flex-col items-center px-4 py-6 bg-white text-black rounded-lg shadow-lg tracking-wide uppercase border-2 border-black border-blue cursor-pointer hover:bg-[#e6ae93] hover:text-white">
+        <svg class="w-32 h-32" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+            <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+        </svg>
+        <span class="mt-2 text-4xl leading-normal">Select a file</span>
+
+        <input type='file' name="pdf_file" accept=".pdf" class="hidden" />
+    </label>
+
+    <div class="pt-10 pl-28">
+      <button class="p-3 rounded-xl bg-white hover:bg-[#e6ae93] hover:text-white text-xl border-black border-2" type="submit">Upload</button>
+    </div>
+    
+    <!-- <input class="pt-10 pl-20" type="submit" value="Upload"> -->
+  </form>
+</div>
+</section>
+
+<hr><hr>
+
+    <section class="text-black body-font">
+      <div class="container px-5 py-16 mx-auto ">
+        <h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center">SUMMARY</h1>
+        <div class="flex flex-wrap -m-4">
+        
+          <div class="p-4 md:w-1/1 w-full ml-28 mr-28 h-80 overflow-auto bg-[#e6ae93] rounded-3xl">
+            <div class="h-full bg-[#e6ae93] p-8 ">
+
+              <p class="leading-relaxed mb-6">{{ summary }}</p>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  <!-- About the course -->
+
+  <hr>
+
+  <footer class="text-gray-600 body-font bg-white">
+    <div class="container px-5 py-4 mx-auto flex items-center sm:flex-row flex-col">
+      <a class="flex title-font font-medium items-center md:justify-start justify-center text-black">
+        <span class="ml-3 text-xl">Code_X</span>
+      </a>
+      <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2023 —
+        <a href="https://twitter.com/" class="text-gray-500 ml-1" rel="noopener noreferrer" target="_blank">@Code_X</a>
+      </p>
+      <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+        <a class="text-gray-400" href="https://facebook.com/">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-400" href="https://twitter.com/">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-400" href="https://instagram.com/">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-400" href="https://www.linkedin.com/">
+          <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+          </svg>
+        </a>
+      </span>
+    </div>
+  </footer>
+
+
+</body>
+</html>
